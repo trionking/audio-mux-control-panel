@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>900</width>
+    <height>1024</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Audio Mux 제어판 v1.0</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QGroupBox" name="groupBox_Connection">
+      <property name="title">
+       <string>시리얼 연결</string>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QGroupBox::title { font-size: 11pt; font-weight: bold; margin-left: 10px; }</string>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QLabel" name="label_Port">
+         <property name="text">
+          <string>포트:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="comboBox_Port">
+         <property name="minimumWidth">
+          <number>150</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_Baudrate">
+         <property name="text">
+          <string>보드레이트:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="comboBox_Baudrate">
+         <property name="minimumWidth">
+          <number>100</number>
+         </property>
+         <item>
+          <property name="text">
+           <string>9600</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>19200</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>38400</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>57600</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>115200</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>230400</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>460800</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>921600</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_Refresh">
+         <property name="text">
+          <string>새로고침</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_Connect">
+         <property name="text">
+          <string>연결</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_Status">
+         <property name="text">
+          <string>상태: 연결 끊김</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="groupBox_ChannelControl">
+      <property name="title">
+       <string>채널 제어</string>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QGroupBox::title { font-size: 11pt; font-weight: bold; margin-left: 10px; }</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <widget class="QTableWidget" name="tableWidget_Channels">
+         <property name="minimumHeight">
+          <number>220</number>
+         </property>
+         <property name="maximumHeight">
+          <number>220</number>
+         </property>
+         <property name="verticalScrollBarPolicy">
+          <enum>Qt::ScrollBarAlwaysOff</enum>
+         </property>
+         <property name="horizontalScrollBarPolicy">
+          <enum>Qt::ScrollBarAlwaysOff</enum>
+         </property>
+         <property name="editTriggers">
+          <set>QAbstractItemView::NoEditTriggers</set>
+         </property>
+         <property name="selectionMode">
+          <enum>QAbstractItemView::SingleSelection</enum>
+         </property>
+         <property name="selectionBehavior">
+          <enum>QAbstractItemView::SelectRows</enum>
+         </property>
+         <property name="rowCount">
+          <number>6</number>
+         </property>
+         <property name="columnCount">
+          <number>5</number>
+         </property>
+         <row/>
+         <row/>
+         <row/>
+         <row/>
+         <row/>
+         <row/>
+         <column>
+          <property name="text">
+           <string>채널</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>파일</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>새로고침</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>제어</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>상태</string>
+          </property>
+         </column>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="groupBox_FileUpload">
+      <property name="title">
+       <string>파일 업로드</string>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QGroupBox::title { font-size: 11pt; font-weight: bold; margin-left: 10px; }</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_File">
+         <property name="text">
+          <string>파일:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="lineEdit_FilePath">
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="QPushButton" name="pushButton_Browse">
+         <property name="text">
+          <string>찾아보기...</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_Channel">
+         <property name="text">
+          <string>채널:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QComboBox" name="comboBox_Channel">
+         <item>
+          <property name="text">
+           <string>채널 0</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>채널 1</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>채널 2</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>채널 3</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>채널 4</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>채널 5</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="1" column="2">
+        <widget class="QPushButton" name="pushButton_Upload">
+         <property name="text">
+          <string>업로드 (Y-MODEM)</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0" colspan="3">
+        <widget class="QProgressBar" name="progressBar_Upload">
+         <property name="value">
+          <number>0</number>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="groupBox_AudioConvert">
+      <property name="title">
+       <string>오디오 변환기</string>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QGroupBox::title { font-size: 11pt; font-weight: bold; margin-left: 10px; }</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_InputFile">
+         <property name="text">
+          <string>입력:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="lineEdit_InputFile">
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="QPushButton" name="pushButton_BrowseInput">
+         <property name="text">
+          <string>찾아보기...</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="3">
+        <widget class="QPushButton" name="pushButton_Preview">
+         <property name="text">
+          <string>미리 듣기</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_OutputFile">
+         <property name="text">
+          <string>출력:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="lineEdit_OutputFile"/>
+       </item>
+       <item row="1" column="2">
+        <widget class="QPushButton" name="pushButton_Convert">
+         <property name="text">
+          <string>WAV로 변환</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0" colspan="4">
+        <widget class="QWidget" name="widget_Equalizer" native="true">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: #1a1a1a;</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="groupBox_Log">
+      <property name="title">
+       <string>통신 로그</string>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QGroupBox::title { font-size: 11pt; font-weight: bold; margin-left: 10px; }</string>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>280</height>
+       </size>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QTextEdit" name="textEdit_Log">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>230</height>
+          </size>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+         <property name="font">
+          <font>
+           <family>Consolas</family>
+           <pointsize>9</pointsize>
+          </font>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item>
+          <widget class="QPushButton" name="pushButton_ClearLog">
+           <property name="text">
+            <string>로그 지우기</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>900</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>파일</string>
+    </property>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>도움말</string>
+    </property>
+    <addaction name="actionAbout"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionExit">
+   <property name="text">
+    <string>종료</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>정보</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
